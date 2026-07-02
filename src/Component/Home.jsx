@@ -8,7 +8,7 @@ export const Home = () => {
       <section className="hero">
         <div className="hero-content">
           <p className="eyebrow">Cybersecurity • Governance • Privacy</p>
-          <h2>I help organisations strengthen resilience, protect data, and build digital trust.</h2>
+          <h3>I help organisations strengthen resilience, protect data, and build digital trust.</h3>
           <p className="hero-text">
             I am Osita Kingsley Odo, a junior cybersecurity professional with a strong foundation in
             vulnerability assessment, privacy awareness, and practical security operations. My work
