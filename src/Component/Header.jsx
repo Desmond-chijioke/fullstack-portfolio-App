@@ -1,22 +1,39 @@
+
+import { Link } from "react-router-dom";
 import img2 from "../image/img-2.jpeg"
 
 export const Header = () => {
   return (
     <header className="site-header">
       <div className="header">
-        <a className="brand" href="#home">
+        <Link className="brand" to="/">
           <img src={img2} alt="Osita Kingsley Odo" />
-          <div>
+          <div className="brand-copy">
             <strong>Osita Kingsley Odo</strong>
-            <span>Cybersecurity Analyst</span>
+            <span>Cybersecurity Analyst • Risk & Privacy</span>
           </div>
-        </a>
+        </Link>
 
-        <nav className="navbar" aria-label="Primary navigation">
-          <a className="nav-link" href="#experience">Experience</a>
-          <a className="nav-link" href="#education">Education</a>
-          <a className="nav-link" href="#skills">Skills</a>
-          <a className="nav-link primary" href="#contact">Contact</a>
+        <nav className="navbar">
+          <Link className="nav-link" to="/">
+            Home
+          </Link>
+
+          <Link className="nav-link" to="/experience">
+            Experience
+          </Link>
+
+          <Link className="nav-link" to="/education">
+            Education
+          </Link>
+
+          <Link className="nav-link" to="/skills">
+            Skills
+          </Link>
+
+          <Link className="nav-link primary" to="/contact">
+            Contact
+          </Link>
         </nav>
       </div>
     </header>

@@ -44,6 +44,7 @@ img {
   backdrop-filter: blur(18px);
   background: rgba(248, 251, 255, 0.92);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(20, 33, 61, 0.04);
 }
 
 .header {
@@ -68,6 +69,11 @@ img {
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--accent);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
 }
 
 .brand strong {
@@ -106,6 +112,12 @@ img {
   color: #fff;
 }
 
+.nav-link.primary:hover,
+.nav-link.primary:focus-visible {
+  background: var(--accent-dark);
+  color: #fff;
+}
+
 .portfolio-shell {
   max-width: 1180px;
   margin: 0 auto;
@@ -131,11 +143,20 @@ img {
 }
 
 .hero h1,
+.hero h2,
 .section-heading h2,
+.section-heading h3,
 .contact-card h2 {
   margin: 0 0 1rem;
   line-height: 1.15;
+}
+
+.hero h2 {
   font-size: clamp(1.9rem, 3vw, 3rem);
+}
+
+.section-heading h3 {
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
 }
 
 .hero-text,
@@ -239,6 +260,12 @@ img {
   border-radius: 20px;
   padding: 1.1rem;
   box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 35px rgba(20, 33, 61, 0.1);
 }
 
 .info-card h3 {
