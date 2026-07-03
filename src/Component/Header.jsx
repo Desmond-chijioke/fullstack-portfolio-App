@@ -33,9 +33,9 @@ export const Header = () => {
           <Link className="nav-link" to="/education">Education</Link>
           <Link className="nav-link" to="/skills">Skills</Link>
           <Link className="nav-link primary" to="/contact">Contact</Link>
-          <Link className="nav-link admin-nav-btn" to="/admin" title="Admin">
+          {/* <Link className="nav-link admin-nav-btn" to="/admin" title="Admin">
             <i className="bi bi-shield-lock"></i>
-          </Link>
+          </Link> */}
         </nav>
       </div>
     </header>
