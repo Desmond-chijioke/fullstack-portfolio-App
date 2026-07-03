@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 
 export const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -13,6 +13,17 @@ export const Login = () => {
     e.preventDefault();
     setError("");
     setLoading(true);
+
+    // Read directly from DOM refs — works even when browser autofill
+    // doesn't trigger React's onChange
+    const email = emailRef.current?.value?.trim();
+    const password = passwordRef.current?.value;
+
+    if (!email || !password) {
+      setError("Please enter your email and password.");
+      setLoading(false);
+      return;
+    }
 
     const { error: authError } = await supabase.auth.signInWithPassword({
       email,
@@ -36,7 +47,7 @@ export const Login = () => {
             <i className="bi bi-shield-lock-fill"></i>
           </div>
           <h1>Admin Portal</h1>
-          <p>Osita Kingsley Odo — Portfolio CMS</p>
+          <p>Portfolio CMS</p>
         </div>
 
         <form className="admin-login-form" onSubmit={handleLogin}>
@@ -52,13 +63,12 @@ export const Login = () => {
             <div className="admin-input-wrap">
               <i className="bi bi-envelope"></i>
               <input
+                ref={emailRef}
                 id="email"
                 type="email"
                 placeholder="admin@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
                 required
-                autoFocus
+                autoComplete="email"
               />
             </div>
           </div>
@@ -68,12 +78,12 @@ export const Login = () => {
             <div className="admin-input-wrap">
               <i className="bi bi-lock"></i>
               <input
+                ref={passwordRef}
                 id="password"
                 type="password"
                 placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 required
+                autoComplete="current-password"
               />
             </div>
           </div>
