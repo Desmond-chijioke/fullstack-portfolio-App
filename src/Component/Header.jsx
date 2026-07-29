@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../lib/supabase";
-import fallbackAvatar from "../image/img-2.jpeg";
 
 export const Header = () => {
   const [settings, setSettings] = useState(null);
@@ -11,7 +10,7 @@ export const Header = () => {
       .then(({ data }) => { if (data) setSettings(data); });
   }, []);
 
-  const avatar = settings?.avatar_url || fallbackAvatar;
+  const avatar = settings?.avatar_url;
   const name = settings?.full_name || "Osita Kingsley Odo";
   const headline = settings?.headline || "Cybersecurity Analyst • Risk & Privacy";
 

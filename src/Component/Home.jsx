@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { supabase } from "../lib/supabase";
-import fallbackImg from "../image/img-1.jpeg";
-
 export const Home = () => {
   const [settings, setSettings] = useState(null);
 
@@ -12,7 +10,7 @@ export const Home = () => {
   }, []);
 
   const s = settings;
-  const heroImage = s?.hero_image_url || fallbackImg;
+  const heroImage = s?.hero_image_url;
   const staticCv = `${import.meta.env.BASE_URL}cv/Odo_CV_Cybersec..pdf`;
   const cvUrl = s?.cv_url || staticCv;
 
@@ -25,7 +23,7 @@ export const Home = () => {
             {s?.hero_headline || "I help organisations strengthen resilience, protect data, and build digital trust."}
           </h1>
           <p className="hero-text">
-            {s?.hero_bio || "I am a junior cybersecurity professional with a strong foundation in vulnerability assessment, privacy awareness, and practical security operations."}
+            {s?.hero_bio || "I am a cybersecurity professional with a strong foundation in vulnerability assessment, privacy awareness, and practical security operations."}
           </p>
           <div className="hero-actions">
             <Link className="btn primary" to="/experience">View Experience</Link>
